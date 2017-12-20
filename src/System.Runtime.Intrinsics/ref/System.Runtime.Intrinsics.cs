@@ -16,6 +16,818 @@ namespace System.Runtime.Intrinsics
     [StructLayout(LayoutKind.Sequential, Size = 32)]
     public struct Vector256<T> where T : struct {}
 }
+namespace System.Runtime.Intrinsics.Arm.Arm64
+{
+#if ARM64_HW_INTRINSIC_NYI
+    public static class Base
+    {
+        public static bool IsSupported { get { throw null; } }
+
+        public static uint  LeadingSignCount(int  value) { throw null; }
+        public static ulong LeadingSignCount(long value) { throw null; }
+        public static uint  LeadingZeroCount(uint  value) { throw null; }
+        public static ulong LeadingZeroCount(ulong value) { throw null; }
+    }
+#endif
+    public static class Simd
+    {
+        public static bool IsSupported { get { throw null; } }
+
+        /// <summary>
+        /// Vector abs
+        /// Corresponds to vector forms of ARM64 ABS & FABS
+        /// </summary>
+        public static Vector64<byte>    Abs(Vector64<sbyte>   value) { throw null; }
+        public static Vector64<ushort>  Abs(Vector64<short>   value) { throw null; }
+        public static Vector64<uint>    Abs(Vector64<int>     value) { throw null; }
+        public static Vector64<float>   Abs(Vector64<float>   value) { throw null; }
+        public static Vector128<byte>   Abs(Vector128<sbyte>  value) { throw null; }
+        public static Vector128<ushort> Abs(Vector128<short>  value) { throw null; }
+        public static Vector128<uint>   Abs(Vector128<int>    value) { throw null; }
+        public static Vector128<ulong>  Abs(Vector128<long>   value) { throw null; }
+        public static Vector128<float>  Abs(Vector128<float>  value) { throw null; }
+        public static Vector128<double> Abs(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector add
+        /// Corresponds to vector forms of ARM64 ADD & FADD
+        /// </summary>
+        public static Vector64<T>  Add<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> Add<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector and
+        /// Corresponds to vector forms of ARM64 AND
+        /// </summary>
+        public static Vector64<T>  And<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> And<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector and not
+        /// Corresponds to vector forms of ARM64 BIC
+        /// </summary>
+        public static Vector64<T>  AndNot<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> AndNot<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector BitwiseSelect
+        /// For each bit in the vector result[bit] = sel[bit] ? left[bit] : right[bit]
+        /// Corresponds to vector forms of ARM64 BSL (Also BIF & BIT)
+        /// </summary>
+        public static Vector64<T>  BitwiseSelect<T>(Vector64<T>  sel, Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> BitwiseSelect<T>(Vector128<T> sel, Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareEqual
+        /// For each element result[elem] = (left[elem] == right[elem]) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMEQ & FCMEQ
+        /// </summary>
+        public static Vector64<T>  CompareEqual<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> CompareEqual<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareEqualZero
+        /// For each element result[elem] = (left[elem] == 0) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMEQ & FCMEQ
+        /// </summary>
+        public static Vector64<T>  CompareEqualZero<T>(Vector64<T>  value) where T : struct { throw null; }
+        public static Vector128<T> CompareEqualZero<T>(Vector128<T> value) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareGreaterThan
+        /// For each element result[elem] = (left[elem] > right[elem]) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMGT/CMHI & FCMGT
+        /// </summary>
+        public static Vector64<T>  CompareGreaterThan<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> CompareGreaterThan<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareGreaterThanZero
+        /// For each element result[elem] = (left[elem] > 0) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMGT & FCMGT
+        /// </summary>
+        public static Vector64<T>  CompareGreaterThanZero<T>(Vector64<T>  value) where T : struct { throw null; }
+        public static Vector128<T> CompareGreaterThanZero<T>(Vector128<T> value) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareGreaterThanOrEqual
+        /// For each element result[elem] = (left[elem] >= right[elem]) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMGE/CMHS & FCMGE
+        /// </summary>
+        public static Vector64<T>  CompareGreaterThanOrEqual<T>(Vector64<T>  left, Vector64<T>    right) where T : struct { throw null; }
+        public static Vector128<T> CompareGreaterThanOrEqual<T>(Vector128<T> left, Vector128<T>   right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareGreaterThanOrEqualZero
+        /// For each element result[elem] = (left[elem] >= 0) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMGE & FCMGE
+        /// </summary>
+        public static Vector64<T>  CompareGreaterThanOrEqualZero<T>(Vector64<T>  value) where T : struct { throw null; }
+        public static Vector128<T> CompareGreaterThanOrEqualZero<T>(Vector128<T> value) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareLessThanZero
+        /// For each element result[elem] = (left[elem] < 0) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMGT & FCMGT
+        /// </summary>
+        public static Vector64<T>  CompareLessThanZero<T>(Vector64<T>  value) where T : struct { throw null; }
+        public static Vector128<T> CompareLessThanZero<T>(Vector128<T> value) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareLessThanOrEqualZero
+        /// For each element result[elem] = (left[elem] < 0) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMGT & FCMGT
+        /// </summary>
+        public static Vector64<T>  CompareLessThanOrEqualZero<T>(Vector64<T>  value) where T : struct { throw null; }
+        public static Vector128<T> CompareLessThanOrEqualZero<T>(Vector128<T> value) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector CompareTest
+        /// For each element result[elem] = (left[elem] & right[elem]) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 CMTST
+        /// </summary>
+        public static Vector64<T>  CompareTest<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> CompareTest<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// TBD Convert...
+
+        /// <summary>
+        /// Vector Divide
+        /// Corresponds to vector forms of ARM64 FDIV
+        /// </summary>
+        public static Vector64<float>   Divide(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  Divide(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> Divide(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector extract item
+        ///
+        /// result = vector[index]
+        ///
+        /// Note: In order to be inlined, index must be a JIT time const expression which can be used to
+        /// populate the literal immediate field.  Use of a non constant will result in generation of a switch table
+        ///
+        /// Corresponds to vector forms of ARM64 MOV
+        /// </summary>
+        public static T Extract<T>(Vector64<T>  vector, byte index) where T : struct { throw null; }
+        public static T Extract<T>(Vector128<T> vector, byte index) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector insert item
+        ///
+        /// result = vector;
+        /// result[index] = data;
+        ///
+        /// Note: In order to be inlined, index must be a JIT time const expression which can be used to
+        /// populate the literal immediate field.  Use of a non constant will result in generation of a switch table
+        ///
+        /// Corresponds to vector forms of ARM64 INS
+        /// </summary>
+        public static Vector64<T>  Insert<T>(Vector64<T>  vector, byte index, T data) where T : struct { throw null; }
+        public static Vector128<T> Insert<T>(Vector128<T> vector, byte index, T data) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector LeadingSignCount
+        /// Corresponds to vector forms of ARM64 CLS
+        /// </summary>
+        public static Vector64<sbyte>  LeadingSignCount(Vector64<sbyte>  value) { throw null; }
+        public static Vector64<short>  LeadingSignCount(Vector64<short>  value) { throw null; }
+        public static Vector64<int>    LeadingSignCount(Vector64<int>    value) { throw null; }
+        public static Vector128<sbyte> LeadingSignCount(Vector128<sbyte> value) { throw null; }
+        public static Vector128<short> LeadingSignCount(Vector128<short> value) { throw null; }
+        public static Vector128<int>   LeadingSignCount(Vector128<int>   value) { throw null; }
+        public static Vector128<long>  LeadingSignCount(Vector128<long>  value) { throw null; }
+
+        /// <summary>
+        /// Vector LeadingZeroCount
+        /// Corresponds to vector forms of ARM64 CLZ
+        /// </summary>
+        public static Vector64<byte>    LeadingZeroCount(Vector64<byte>    value) { throw null; }
+        public static Vector64<sbyte>   LeadingZeroCount(Vector64<sbyte>   value) { throw null; }
+        public static Vector64<ushort>  LeadingZeroCount(Vector64<ushort>  value) { throw null; }
+        public static Vector64<short>   LeadingZeroCount(Vector64<short>   value) { throw null; }
+        public static Vector64<uint>    LeadingZeroCount(Vector64<uint>    value) { throw null; }
+        public static Vector64<int>     LeadingZeroCount(Vector64<int>     value) { throw null; }
+        public static Vector128<byte>   LeadingZeroCount(Vector128<byte>   value) { throw null; }
+        public static Vector128<sbyte>  LeadingZeroCount(Vector128<sbyte>  value) { throw null; }
+        public static Vector128<ushort> LeadingZeroCount(Vector128<ushort> value) { throw null; }
+        public static Vector128<short>  LeadingZeroCount(Vector128<short>  value) { throw null; }
+        public static Vector128<uint>   LeadingZeroCount(Vector128<uint>   value) { throw null; }
+        public static Vector128<int>    LeadingZeroCount(Vector128<int>    value) { throw null; }
+        public static Vector128<ulong>  LeadingZeroCount(Vector128<ulong>  value) { throw null; }
+        public static Vector128<long>   LeadingZeroCount(Vector128<long>   value) { throw null; }
+
+        /// <summary>
+        /// Vector multiply
+        ///
+        /// For each element result[elem] = left[elem] * right[elem]
+        ///
+        /// Corresponds to vector forms of ARM64 MUL & FMUL
+        /// </summary>
+        public static Vector64<byte>    Multiply(Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<sbyte>   Multiply(Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector64<ushort>  Multiply(Vector64<ushort>  left, Vector64<ushort>  right) { throw null; }
+        public static Vector64<short>   Multiply(Vector64<short>   left, Vector64<short>   right) { throw null; }
+        public static Vector64<uint>    Multiply(Vector64<uint>    left, Vector64<uint>    right) { throw null; }
+        public static Vector64<int>     Multiply(Vector64<int>     left, Vector64<int>     right) { throw null; }
+        public static Vector64<float>   Multiply(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<byte>   Multiply(Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<sbyte>  Multiply(Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+        public static Vector128<ushort> Multiply(Vector128<ushort> left, Vector128<ushort> right) { throw null; }
+        public static Vector128<short>  Multiply(Vector128<short>  left, Vector128<short>  right) { throw null; }
+        public static Vector128<uint>   Multiply(Vector128<uint>   left, Vector128<uint>   right) { throw null; }
+        public static Vector128<int>    Multiply(Vector128<int>    left, Vector128<int>    right) { throw null; }
+        public static Vector128<ulong>  Multiply(Vector128<ulong>  left, Vector128<ulong>  right) { throw null; }
+        public static Vector128<long>   Multiply(Vector128<long>   left, Vector128<long>   right) { throw null; }
+        public static Vector128<float>  Multiply(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> Multiply(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector max
+        /// Corresponds to vector forms of ARM64 SMAX, UMAX & FMAX
+        /// </summary>
+        public static Vector64<T>  Max<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> Max<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector min
+        /// Corresponds to vector forms of ARM64 SMIN, UMIN & FMIN
+        /// </summary>
+        public static Vector64<T>  Min<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> Min<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector negate
+        /// Corresponds to vector forms of ARM64 NEG & FNEG
+        /// </summary>
+        public static Vector64<sbyte>   Negate(Vector64<sbyte>   value) { throw null; }
+        public static Vector64<short>   Negate(Vector64<short>   value) { throw null; }
+        public static Vector64<int>     Negate(Vector64<int>     value) { throw null; }
+        public static Vector64<float>   Negate(Vector64<float>   value) { throw null; }
+        public static Vector128<sbyte>  Negate(Vector128<sbyte>  value) { throw null; }
+        public static Vector128<short>  Negate(Vector128<short>  value) { throw null; }
+        public static Vector128<int>    Negate(Vector128<int>    value) { throw null; }
+        public static Vector128<long>   Negate(Vector128<long>   value) { throw null; }
+        public static Vector128<float>  Negate(Vector128<float>  value) { throw null; }
+        public static Vector128<double> Negate(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector not
+        /// Corresponds to vector forms of ARM64 NOT
+        /// </summary>
+        public static Vector64<T>  Not<T>(Vector64<T>  value) where T : struct { throw null; }
+        public static Vector128<T> Not<T>(Vector128<T> value) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector or
+        /// Corresponds to vector forms of ARM64 ORR
+        /// </summary>
+        public static Vector64<T>  Or<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> Or<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector or not
+        /// Corresponds to vector forms of ARM64 ORN
+        /// </summary>
+        public static Vector64<T>  OrNot<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> OrNot<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector PopCount
+        /// Corresponds to vector forms of ARM64 CNT
+        /// </summary>
+        public static Vector64<byte>    PopCount(Vector64<byte>    value) { throw null; }
+        public static Vector64<sbyte>   PopCount(Vector64<sbyte>   value) { throw null; }
+        public static Vector64<ushort>  PopCount(Vector64<ushort>  value) { throw null; }
+        public static Vector64<short>   PopCount(Vector64<short>   value) { throw null; }
+        public static Vector64<uint>    PopCount(Vector64<uint>    value) { throw null; }
+        public static Vector64<int>     PopCount(Vector64<int>     value) { throw null; }
+        public static Vector128<byte>   PopCount(Vector128<byte>   value) { throw null; }
+        public static Vector128<sbyte>  PopCount(Vector128<sbyte>  value) { throw null; }
+        public static Vector128<ushort> PopCount(Vector128<ushort> value) { throw null; }
+        public static Vector128<short>  PopCount(Vector128<short>  value) { throw null; }
+        public static Vector128<uint>   PopCount(Vector128<uint>   value) { throw null; }
+        public static Vector128<int>    PopCount(Vector128<int>    value) { throw null; }
+        public static Vector128<ulong>  PopCount(Vector128<ulong>  value) { throw null; }
+        public static Vector128<long>   PopCount(Vector128<long>   value) { throw null; }
+
+        /// <summary>
+        /// SetVector* Fill vector elements by replicating element value
+        ///
+        /// Corresponds to vector forms of ARM64 DUP (general), DUP (element 0), FMOV (vector, immediate)
+        /// </summary>
+        public static Vector64<T>    SetAllVector64<T>(T value) where T : struct { throw null; }
+        public static Vector128<T>   SetAllVector128<T>(T value) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector square root
+        /// Corresponds to vector forms of ARM64 FRSQRT
+        /// </summary>
+        public static Vector64<float>   Sqrt(Vector64<float>   value) { throw null; }
+        public static Vector128<float>  Sqrt(Vector128<float>  value) { throw null; }
+        public static Vector128<double> Sqrt(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector subtract
+        /// Corresponds to vector forms of ARM64 SUB & FSUB
+        /// </summary>
+        public static Vector64<T>  Subtract<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> Subtract<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+
+        /// <summary>
+        /// Vector exclusive or
+        /// Corresponds to vector forms of ARM64 EOR
+        /// </summary>
+        public static Vector64<T>  Xor<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> Xor<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+#if ARM64_HW_INTRINSIC_NYI
+        /// <summary>
+        /// Vector CompareGreaterThanOrEqual
+        /// For each element result[elem] = (|left[elem]| >= |right[elem]|) ? ~0 : 0
+        /// Corresponds to vector forms of ARM64 FACGE
+        /// </summary>
+        public static Vector64<float>   AbsoluteCompareGreaterThanOrEqual(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  AbsoluteCompareGreaterThanOrEqual(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> AbsoluteCompareGreaterThanOrEqual(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector CompareGreaterThan
+        ///
+        /// For each element result[elem] = (|left[elem]| > |right[elem]|) ? ~0 : 0
+        ///
+        /// Corresponds to vector forms of ARM64 FACGT
+        /// </summary>
+        public static Vector64<float>   AbsoluteCompareGreaterThan(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  AbsoluteCompareGreaterThan(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> AbsoluteCompareGreaterThan(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector absolute difference
+        /// Corresponds to vector forms of ARM64 SABD, UABD & FABD
+        /// </summary>
+        public static Vector64<byte>    AbsoluteDifference(Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<byte>    AbsoluteDifference(Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector64<ushort>  AbsoluteDifference(Vector64<ushort>  left, Vector64<ushort>  right) { throw null; }
+        public static Vector64<ushort>  AbsoluteDifference(Vector64<short>   left, Vector64<short>   right) { throw null; }
+        public static Vector64<uint>    AbsoluteDifference(Vector64<uint>    left, Vector64<uint>    right) { throw null; }
+        public static Vector64<uint>    AbsoluteDifference(Vector64<int>     left, Vector64<int>     right) { throw null; }
+        public static Vector64<float>   AbsoluteDifference(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<byte>   AbsoluteDifference(Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<byte>   AbsoluteDifference(Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+        public static Vector128<ushort> AbsoluteDifference(Vector128<ushort> left, Vector128<ushort> right) { throw null; }
+        public static Vector128<ushort> AbsoluteDifference(Vector128<short>  left, Vector128<short>  right) { throw null; }
+        public static Vector128<uint>   AbsoluteDifference(Vector128<uint>   left, Vector128<uint>   right) { throw null; }
+        public static Vector128<uint>   AbsoluteDifference(Vector128<int>    left, Vector128<int>    right) { throw null; }
+        public static Vector128<float>  AbsoluteDifference(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> AbsoluteDifference(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// TBD Addhn, Addhn2
+
+        /// <summary>
+        /// Vector absolute difference add
+        ///
+        /// For each element result[elem] = acc[elem] + | left[elem] - right[elem] |
+        ///
+        /// Corresponds to vector forms of ARM64 SABA, UABA
+        /// </summary>
+        public static Vector64<byte>    AbsoluteDifferenceAdd(Vector64<byte>    acc, Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<byte>    AbsoluteDifferenceAdd(Vector64<sbyte>   acc, Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector64<ushort>  AbsoluteDifferenceAdd(Vector64<ushort>  acc, Vector64<ushort>  left, Vector64<ushort>  right) { throw null; }
+        public static Vector64<ushort>  AbsoluteDifferenceAdd(Vector64<short>   acc, Vector64<short>   left, Vector64<short>   right) { throw null; }
+        public static Vector64<uint>    AbsoluteDifferenceAdd(Vector64<uint>    acc, Vector64<uint>    left, Vector64<uint>    right) { throw null; }
+        public static Vector64<uint>    AbsoluteDifferenceAdd(Vector64<int>     acc, Vector64<int>     left, Vector64<int>     right) { throw null; }
+        public static Vector128<byte>   AbsoluteDifferenceAdd(Vector128<byte>   acc, Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<byte>   AbsoluteDifferenceAdd(Vector128<sbyte>  acc, Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+        public static Vector128<ushort> AbsoluteDifferenceAdd(Vector128<ushort> acc, Vector128<ushort> left, Vector128<ushort> right) { throw null; }
+        public static Vector128<ushort> AbsoluteDifferenceAdd(Vector128<short>  acc, Vector128<short>  left, Vector128<short>  right) { throw null; }
+        public static Vector128<uint>   AbsoluteDifferenceAdd(Vector128<uint>   acc, Vector128<uint>   left, Vector128<uint>   right) { throw null; }
+        public static Vector128<uint>   AbsoluteDifferenceAdd(Vector128<int>    acc, Vector128<int>    left, Vector128<int>    right) { throw null; }
+
+        /// <summary>
+        /// Vector add pairwise
+        /// For each byte result[byte] = 2*byte < result.Length ? (left[2*byte] + left[2*byte + 1]) : (right[2*byte - result.Length] + right[2*byte + 1 - result.Length])
+        /// Corresponds to vector forms of ARM64 ADDP & FADDP
+        /// </summary>
+        public static Vector64<T>  AddPairwise<T>(Vector64<T>  left, Vector64<T>  right) where T : struct { throw null; }
+        public static Vector128<T> AddPairwise<T>(Vector128<T> left, Vector128<T> right) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector add across vector elements
+        /// Corresponds to vector forms of ARM64 ADDV
+        /// </summary>
+        public static byte   AddAcross(Vector64<byte>    value) { throw null; }
+        public static sbyte  AddAcross(Vector64<sbyte>   value) { throw null; }
+        public static ushort AddAcross(Vector64<ushort>  value) { throw null; }
+        public static short  AddAcross(Vector64<short>   value) { throw null; }
+        public static uint   AddAcross(Vector64<uint>    value) { throw null; }
+        public static int    AddAcross(Vector64<int>     value) { throw null; }
+        public static byte   AddAcross(Vector128<byte>   value) { throw null; }
+        public static sbyte  AddAcross(Vector128<sbyte>  value) { throw null; }
+        public static ushort AddAcross(Vector128<ushort> value) { throw null; }
+        public static short  AddAcross(Vector128<short>  value) { throw null; }
+        public static uint   AddAcross(Vector128<uint>   value) { throw null; }
+        public static int    AddAcross(Vector128<int>    value) { throw null; }
+
+        /// <summary>
+        /// Vector extract from pair of vectors
+        /// For each byte result[byte] = byte + index < result.Length ? left[byte + index] : right[byte + index - result.Length]
+        ///
+        /// Note: index must be a JIT time const expression which can be used to populate the literal immediate field
+        ///
+        /// Corresponds to vector forms of ARM64 EXT
+        /// </summary>
+        public static Vector64<T>  Extract<T>(Vector64<T>  left, Vector64<T>  right, byte index) where T : struct { throw null; }
+        public static Vector128<T> Extract<T>(Vector128<T> left, Vector128<T> right, byte index) where T : struct { throw null; }
+
+        /// <summary>
+        /// Vector max numeric
+        /// Corresponds to vector forms of ARM64 FMAXNM
+        /// </summary>
+        public static Vector64<float>   MaxNumeric(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  MaxNumeric(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MaxNumeric(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector max numeric pairwise
+        ///
+        /// For each element result[elem] = 2*elem < result.Length ? max(left[2*elem], left[2*byte + 1]) : max(right[2*byte - result.Length], right[2*byte + 1 - result.Length])
+        ///
+        /// Corresponds to vector forms of ARM64 FMAXNMP
+        /// </summary>
+        public static Vector64<float>   MaxNumericPairwise(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  MaxNumericPairwise(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MaxNumericPairwise(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector max numeric across
+        ///
+        /// result = max(value[0], ... , value[length -1])
+        ///
+        /// Corresponds to vector forms of ARM64 FMAXNMV
+        /// </summary>
+        public static float  MaxNumericAcross(Vector64<float>   value) { throw null; }
+        public static float  MaxNumericAcross(Vector128<float>  value) { throw null; }
+        public static double MaxNumericAcross(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector max pairwise
+        ///
+        /// For each element result[elem] = 2*elem < result.Length ? max(left[2*elem], left[2*byte + 1]) : max(right[2*byte - result.Length], right[2*byte + 1 - result.Length])
+        ///
+        /// Corresponds to vector forms of ARM64 SMAXP, UMAXP & FMAXP
+        /// </summary>
+        public static Vector64<byte>    MaxPairwise(Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<sbyte>   MaxPairwise(Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector64<ushort>  MaxPairwise(Vector64<ushort>  left, Vector64<ushort>  right) { throw null; }
+        public static Vector64<short>   MaxPairwise(Vector64<short>   left, Vector64<short>   right) { throw null; }
+        public static Vector64<uint>    MaxPairwise(Vector64<uint>    left, Vector64<uint>    right) { throw null; }
+        public static Vector64<int>     MaxPairwise(Vector64<int>     left, Vector64<int>     right) { throw null; }
+        public static Vector64<float>   MaxPairwise(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<byte>   MaxPairwise(Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<sbyte>  MaxPairwise(Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+        public static Vector128<ushort> MaxPairwise(Vector128<ushort> left, Vector128<ushort> right) { throw null; }
+        public static Vector128<short>  MaxPairwise(Vector128<short>  left, Vector128<short>  right) { throw null; }
+        public static Vector128<uint>   MaxPairwise(Vector128<uint>   left, Vector128<uint>   right) { throw null; }
+        public static Vector128<int>    MaxPairwise(Vector128<int>    left, Vector128<int>    right) { throw null; }
+        public static Vector128<float>  MaxPairwise(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MaxPairwise(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector max across
+        ///
+        /// result = max(value[0], ... , value[length -1])
+        ///
+        /// Corresponds to vector forms of ARM64 SMAXP, UMAXP & FMAXP
+        /// </summary>
+        public static byte   MaxAcross(Vector64<byte>    value) { throw null; }
+        public static sbyte  MaxAcross(Vector64<sbyte>   value) { throw null; }
+        public static ushort MaxAcross(Vector64<ushort>  value) { throw null; }
+        public static short  MaxAcross(Vector64<short>   value) { throw null; }
+        public static uint   MaxAcross(Vector64<uint>    value) { throw null; }
+        public static int    MaxAcross(Vector64<int>     value) { throw null; }
+        public static float  MaxAcross(Vector64<float>   value) { throw null; }
+        public static byte   MaxAcross(Vector128<byte>   value) { throw null; }
+        public static sbyte  MaxAcross(Vector128<sbyte>  value) { throw null; }
+        public static ushort MaxAcross(Vector128<ushort> value) { throw null; }
+        public static short  MaxAcross(Vector128<short>  value) { throw null; }
+        public static uint   MaxAcross(Vector128<uint>   value) { throw null; }
+        public static int    MaxAcross(Vector128<int>    value) { throw null; }
+        public static ulong  MaxAcross(Vector128<ulong>  value) { throw null; }
+        public static long   MaxAcross(Vector128<long>   value) { throw null; }
+        public static float  MaxAcross(Vector128<float>  value) { throw null; }
+        public static double MaxAcross(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector min numeric
+        /// Corresponds to vector forms of ARM64 FMINNM
+        /// </summary>
+        public static Vector64<float>   MinNumeric(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  MinNumeric(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MinNumeric(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector min numeric pairwise
+        ///
+        /// For each element result[elem] = 2*elem < result.Length ? min(left[2*elem], left[2*byte + 1]) : min(right[2*byte - result.Length], right[2*byte + 1 - result.Length])
+        ///
+        /// Corresponds to vector forms of ARM64 FMINNMP
+        /// </summary>
+        public static Vector64<float>   MaxNumericPairwise(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  MaxNumericPairwise(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MaxNumericPairwise(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector min numeric across
+        ///
+        /// result = min(value[0], ... , value[length -1])
+        ///
+        /// Corresponds to vector forms of ARM64 FMINNMV
+        /// </summary>
+        public static float  MaxNumericAcross(Vector64<float>   value) { throw null; }
+        public static float  MaxNumericAcross(Vector128<float>  value) { throw null; }
+        public static double MaxNumericAcross(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector min pairwise
+        ///
+        /// For each element result[elem] = 2*elem < result.Length ? min(left[2*elem], left[2*byte + 1]) : min(right[2*byte - result.Length], right[2*byte + 1 - result.Length])
+        ///
+        /// Corresponds to vector forms of ARM64 SMAXP, UMAXP & FMAXP
+        /// </summary>
+        public static Vector64<byte>    MinPairwise(Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<sbyte>   MinPairwise(Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector64<ushort>  MinPairwise(Vector64<ushort>  left, Vector64<ushort>  right) { throw null; }
+        public static Vector64<short>   MinPairwise(Vector64<short>   left, Vector64<short>   right) { throw null; }
+        public static Vector64<uint>    MinPairwise(Vector64<uint>    left, Vector64<uint>    right) { throw null; }
+        public static Vector64<int>     MinPairwise(Vector64<int>     left, Vector64<int>     right) { throw null; }
+        public static Vector64<float>   MinPairwise(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<byte>   MinPairwise(Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<sbyte>  MinPairwise(Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+        public static Vector128<ushort> MinPairwise(Vector128<ushort> left, Vector128<ushort> right) { throw null; }
+        public static Vector128<short>  MinPairwise(Vector128<short>  left, Vector128<short>  right) { throw null; }
+        public static Vector128<uint>   MinPairwise(Vector128<uint>   left, Vector128<uint>   right) { throw null; }
+        public static Vector128<int>    MinPairwise(Vector128<int>    left, Vector128<int>    right) { throw null; }
+        public static Vector128<float>  MinPairwise(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MinPairwise(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector min across
+        ///
+        /// result = max(value[0], ... , value[length -1])
+        ///
+        /// Corresponds to vector forms of ARM64 SMAXP, UMAXP & FMAXP
+        /// </summary>
+        public static byte   MinAcross(Vector64<byte>    value) { throw null; }
+        public static sbyte  MinAcross(Vector64<sbyte>   value) { throw null; }
+        public static ushort MinAcross(Vector64<ushort>  value) { throw null; }
+        public static short  MinAcross(Vector64<short>   value) { throw null; }
+        public static uint   MinAcross(Vector64<uint>    value) { throw null; }
+        public static int    MinAcross(Vector64<int>     value) { throw null; }
+        public static float  MinAcross(Vector64<float>   value) { throw null; }
+        public static byte   MinAcross(Vector128<byte>   value) { throw null; }
+        public static sbyte  MinAcross(Vector128<sbyte>  value) { throw null; }
+        public static ushort MinAcross(Vector128<ushort> value) { throw null; }
+        public static short  MinAcross(Vector128<short>  value) { throw null; }
+        public static uint   MinAcross(Vector128<uint>   value) { throw null; }
+        public static int    MinAcross(Vector128<int>    value) { throw null; }
+        public static float  MinAcross(Vector128<float>  value) { throw null; }
+        public static double MinAcross(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector multiply by element
+        ///
+        /// For each element result[elem] = left[elem] * right
+        ///
+        /// Right can contain Extract element
+        ///
+        /// Corresponds to vector forms of ARM64 FMUL
+        /// </summary>
+        public static Vector64<byte>    Multiply(Vector64<byte>    left, byte    right) { throw null; }
+        public static Vector64<sbyte>   Multiply(Vector64<sbyte>   left, sbyte   right) { throw null; }
+        public static Vector64<ushort>  Multiply(Vector64<ushort>  left, ushort  right) { throw null; }
+        public static Vector64<short>   Multiply(Vector64<short>   left, short   right) { throw null; }
+        public static Vector64<uint>    Multiply(Vector64<uint>    left, uint    right) { throw null; }
+        public static Vector64<int>     Multiply(Vector64<int>     left, int     right) { throw null; }
+        public static Vector64<float>   Multiply(Vector64<float>   left, float   right) { throw null; }
+        public static Vector128<byte>   Multiply(Vector128<byte>   left, byte    right) { throw null; }
+        public static Vector128<sbyte>  Multiply(Vector128<sbyte>  left, sbyte   right) { throw null; }
+        public static Vector128<ushort> Multiply(Vector128<ushort> left, ushort  right) { throw null; }
+        public static Vector128<short>  Multiply(Vector128<short>  left, short   right) { throw null; }
+        public static Vector128<uint>   Multiply(Vector128<uint>   left, uint    right) { throw null; }
+        public static Vector128<int>    Multiply(Vector128<int>    left, int     right) { throw null; }
+        public static Vector128<float>  Multiply(Vector128<float>  left, float   right) { throw null; }
+        public static Vector128<double> Multiply(Vector128<double> left, double  right) { throw null; }
+
+        /// <summary>
+        /// Vector multiply add
+        ///
+        /// For each element result[elem] = acc[elem] + left[elem] * right[elem]
+        ///
+        /// Corresponds to vector forms of ARM64 MLA & FMLA
+        /// </summary>
+        public static Vector64<byte>    MultiplyAdd(Vector64<byte>    acc, Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<sbyte>   MultiplyAdd(Vector64<sbyte>   acc, Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector64<ushort>  MultiplyAdd(Vector64<ushort>  acc, Vector64<ushort>  left, Vector64<ushort>  right) { throw null; }
+        public static Vector64<short>   MultiplyAdd(Vector64<short>   acc, Vector64<short>   left, Vector64<short>   right) { throw null; }
+        public static Vector64<uint>    MultiplyAdd(Vector64<uint>    acc, Vector64<uint>    left, Vector64<uint>    right) { throw null; }
+        public static Vector64<int>     MultiplyAdd(Vector64<int>     acc, Vector64<int>     left, Vector64<int>     right) { throw null; }
+        public static Vector64<float>   MultiplyAdd(Vector64<float>   acc, Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<byte>   MultiplyAdd(Vector128<byte>   acc, Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<sbyte>  MultiplyAdd(Vector128<sbyte>  acc, Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+        public static Vector128<ushort> MultiplyAdd(Vector128<ushort> acc, Vector128<ushort> left, Vector128<ushort> right) { throw null; }
+        public static Vector128<short>  MultiplyAdd(Vector128<short>  acc, Vector128<short>  left, Vector128<short>  right) { throw null; }
+        public static Vector128<uint>   MultiplyAdd(Vector128<uint>   acc, Vector128<uint>   left, Vector128<uint>   right) { throw null; }
+        public static Vector128<int>    MultiplyAdd(Vector128<int>    acc, Vector128<int>    left, Vector128<int>    right) { throw null; }
+        public static Vector128<float>  MultiplyAdd(Vector128<float>  acc, Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MultiplyAdd(Vector128<double> acc, Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector multiply add by element
+        ///
+        /// For each element result[elem] = acc[elem] + left[elem] * right
+        ///
+        /// Corresponds to vector forms of ARM64 MLA & FMLA
+        /// </summary>
+        public static Vector64<byte>    MultiplyAdd(Vector64<byte>    acc, Vector64<byte>    left, byte    right) { throw null; }
+        public static Vector64<sbyte>   MultiplyAdd(Vector64<sbyte>   acc, Vector64<sbyte>   left, sbyte   right) { throw null; }
+        public static Vector64<ushort>  MultiplyAdd(Vector64<ushort>  acc, Vector64<ushort>  left, ushort  right) { throw null; }
+        public static Vector64<short>   MultiplyAdd(Vector64<short>   acc, Vector64<short>   left, short   right) { throw null; }
+        public static Vector64<uint>    MultiplyAdd(Vector64<uint>    acc, Vector64<uint>    left, uint    right) { throw null; }
+        public static Vector64<int>     MultiplyAdd(Vector64<int>     acc, Vector64<int>     left, int     right) { throw null; }
+        public static Vector64<float>   MultiplyAdd(Vector64<float>   acc, Vector64<float>   left, float   right) { throw null; }
+        public static Vector128<byte>   MultiplyAdd(Vector128<byte>   acc, Vector128<byte>   left, byte    right) { throw null; }
+        public static Vector128<sbyte>  MultiplyAdd(Vector128<sbyte>  acc, Vector128<sbyte>  left, sbyte   right) { throw null; }
+        public static Vector128<ushort> MultiplyAdd(Vector128<ushort> acc, Vector128<ushort> left, ushort  right) { throw null; }
+        public static Vector128<short>  MultiplyAdd(Vector128<short>  acc, Vector128<short>  left, short   right) { throw null; }
+        public static Vector128<uint>   MultiplyAdd(Vector128<uint>   acc, Vector128<uint>   left, uint    right) { throw null; }
+        public static Vector128<int>    MultiplyAdd(Vector128<int>    acc, Vector128<int>    left, int     right) { throw null; }
+        public static Vector128<float>  MultiplyAdd(Vector128<float>  acc, Vector128<float>  left, float   right) { throw null; }
+        public static Vector128<double> MultiplyAdd(Vector128<double> acc, Vector128<double> left, double  right) { throw null; }
+
+        /// <summary>
+        /// Vector multiply extend
+        ///
+        /// For each element result[elem] = left[elem] * right[elem]
+        /// Handle extend special cases zero and infinite.  FMULX
+        ///
+        /// Corresponds to vector forms of ARM64 FMULX
+        /// </summary>
+        public static Vector64<float>   MultiplyExtend(Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<float>  MultiplyExtend(Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MultiplyExtend(Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector multiply extend by element
+        ///
+        /// For each element result[elem] = left[elem] * right
+        /// Handle extend special cases zero and infinite.  FMULX
+        ///
+        /// Corresponds to vector forms of ARM64 FMULX
+        /// </summary>
+        public static Vector64<float>   MultiplyExtend(Vector64<float>   left, float  right) { throw null; }
+        public static Vector128<float>  MultiplyExtend(Vector128<float>  left, float  right) { throw null; }
+        public static Vector128<double> MultiplyExtend(Vector128<double> left, double right) { throw null; }
+
+        /// <summary>
+        /// Vector multiply subtract
+        ///
+        /// For each element result[elem] = acc[elem] - left[elem] * right[elem]
+        ///
+        /// Corresponds to vector forms of ARM64 MLS & FMLS
+        /// </summary>
+        public static Vector64<byte>    MultiplySubtract(Vector64<byte>    acc, Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<sbyte>   MultiplySubtract(Vector64<sbyte>   acc, Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector64<ushort>  MultiplySubtract(Vector64<ushort>  acc, Vector64<ushort>  left, Vector64<ushort>  right) { throw null; }
+        public static Vector64<short>   MultiplySubtract(Vector64<short>   acc, Vector64<short>   left, Vector64<short>   right) { throw null; }
+        public static Vector64<uint>    MultiplySubtract(Vector64<uint>    acc, Vector64<uint>    left, Vector64<uint>    right) { throw null; }
+        public static Vector64<int>     MultiplySubtract(Vector64<int>     acc, Vector64<int>     left, Vector64<int>     right) { throw null; }
+        public static Vector64<float>   MultiplySubtract(Vector64<float>   acc, Vector64<float>   left, Vector64<float>   right) { throw null; }
+        public static Vector128<byte>   MultiplySubtract(Vector128<byte>   acc, Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<sbyte>  MultiplySubtract(Vector128<sbyte>  acc, Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+        public static Vector128<ushort> MultiplySubtract(Vector128<ushort> acc, Vector128<ushort> left, Vector128<ushort> right) { throw null; }
+        public static Vector128<short>  MultiplySubtract(Vector128<short>  acc, Vector128<short>  left, Vector128<short>  right) { throw null; }
+        public static Vector128<uint>   MultiplySubtract(Vector128<uint>   acc, Vector128<uint>   left, Vector128<uint>   right) { throw null; }
+        public static Vector128<int>    MultiplySubtract(Vector128<int>    acc, Vector128<int>    left, Vector128<int>    right) { throw null; }
+        public static Vector128<float>  MultiplySubtract(Vector128<float>  acc, Vector128<float>  left, Vector128<float>  right) { throw null; }
+        public static Vector128<double> MultiplySubtract(Vector128<double> acc, Vector128<double> left, Vector128<double> right) { throw null; }
+
+        /// <summary>
+        /// Vector multiply subtract by element
+        ///
+        /// For each element result[elem] = acc[elem] - left[elem] * right
+        ///
+        /// Corresponds to vector forms of ARM64 MLS & FMLS
+        /// </summary>
+        public static Vector64<byte>    MultiplySubtract(Vector64<byte>    acc, Vector64<byte>    left, byte    right) { throw null; }
+        public static Vector64<sbyte>   MultiplySubtract(Vector64<sbyte>   acc, Vector64<sbyte>   left, sbyte   right) { throw null; }
+        public static Vector64<ushort>  MultiplySubtract(Vector64<ushort>  acc, Vector64<ushort>  left, ushort  right) { throw null; }
+        public static Vector64<short>   MultiplySubtract(Vector64<short>   acc, Vector64<short>   left, short   right) { throw null; }
+        public static Vector64<uint>    MultiplySubtract(Vector64<uint>    acc, Vector64<uint>    left, uint    right) { throw null; }
+        public static Vector64<int>     MultiplySubtract(Vector64<int>     acc, Vector64<int>     left, int     right) { throw null; }
+        public static Vector64<float>   MultiplySubtract(Vector64<float>   acc, Vector64<float>   left, float   right) { throw null; }
+        public static Vector128<byte>   MultiplySubtract(Vector128<byte>   acc, Vector128<byte>   left, byte    right) { throw null; }
+        public static Vector128<sbyte>  MultiplySubtract(Vector128<sbyte>  acc, Vector128<sbyte>  left, sbyte   right) { throw null; }
+        public static Vector128<ushort> MultiplySubtract(Vector128<ushort> acc, Vector128<ushort> left, ushort  right) { throw null; }
+        public static Vector128<short>  MultiplySubtract(Vector128<short>  acc, Vector128<short>  left, short   right) { throw null; }
+        public static Vector128<uint>   MultiplySubtract(Vector128<uint>   acc, Vector128<uint>   left, uint    right) { throw null; }
+        public static Vector128<int>    MultiplySubtract(Vector128<int>    acc, Vector128<int>    left, int     right) { throw null; }
+        public static Vector128<float>  MultiplySubtract(Vector128<float>  acc, Vector128<float>  left, float   right) { throw null; }
+        public static Vector128<double> MultiplySubtract(Vector128<double> acc, Vector128<double> left, double  right) { throw null; }
+
+        /// <summary>
+        /// Vector polynomial multiply
+        /// Corresponds to vector forms of ARM64 PMUL
+        /// </summary>
+        public static Vector64<byte>    PolynomialMultiply(Vector64<byte>    left, Vector64<byte>    right) { throw null; }
+        public static Vector64<sbyte>   PolynomialMultiply(Vector64<sbyte>   left, Vector64<sbyte>   right) { throw null; }
+        public static Vector128<byte>   PolynomialMultiply(Vector128<byte>   left, Vector128<byte>   right) { throw null; }
+        public static Vector128<sbyte>  PolynomialMultiply(Vector128<sbyte>  left, Vector128<sbyte>  right) { throw null; }
+
+        /// Vector reciprocal estimate
+        ///
+        /// See FRECPE docs
+        ///
+        /// Corresponds to vector forms of ARM64 FRECPE
+        /// </summary>
+        public static Vector64<float>   ReciprocalEstimate(Vector64<float>   value) { throw null; }
+        public static Vector128<float>  ReciprocalEstimate(Vector128<float>  value) { throw null; }
+        public static Vector128<double> ReciprocalEstimate(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector reciprocal step
+        ///
+        /// See FRECPS docs
+        ///
+        /// Corresponds to vector forms of ARM64 FRECPS
+        /// </summary>
+        public static Vector64<float>   ReciprocalStep(Vector64<float>   left, Vector64<float>   right, byte index) { throw null; }
+        public static Vector128<float>  ReciprocalStep(Vector128<float>  left, Vector128<float>  right, byte index) { throw null; }
+        public static Vector128<double> ReciprocalStep(Vector128<double> left, Vector128<double> right, byte index) { throw null; }
+
+        /// <summary>
+        /// Vector reciprocal exponent
+        ///
+        /// See FRECPX docs
+        ///
+        /// Corresponds to vector forms of ARM64 FRECPX
+        /// </summary>
+        public static Vector64<float>   ReciprocalExponent(Vector64<float>   value) { throw null; }
+        public static Vector128<float>  ReciprocalExponent(Vector128<float>  value) { throw null; }
+        public static Vector128<double> ReciprocalExponent(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector reciprocal square root estimate
+        ///
+        /// See FRSQRTE docs
+        ///
+        /// Corresponds to vector forms of ARM64 FRSQRTE
+        /// </summary>
+        public static Vector64<float>   ReciprocalSquareRootEstimate(Vector64<float>   value) { throw null; }
+        public static Vector128<float>  ReciprocalSquareRootEstimate(Vector128<float>  value) { throw null; }
+        public static Vector128<double> ReciprocalSquareRootEstimate(Vector128<double> value) { throw null; }
+
+        /// <summary>
+        /// Vector reciprocal square root step
+        ///
+        /// See FRSQRTS docs
+        ///
+        /// Corresponds to vector forms of ARM64 FRSQRTS
+        /// </summary>
+        public static Vector64<float>   ReciprocalSquareRootEstimate(Vector64<float>   left, Vector64<float>   right, byte index) { throw null; }
+        public static Vector128<float>  ReciprocalSquareRootEstimate(Vector128<float>  left, Vector128<float>  right, byte index) { throw null; }
+        public static Vector128<double> ReciprocalSquareRootEstimate(Vector128<double> left, Vector128<double> right, byte index) { throw null; }
+
+        /// <summary>
+        /// Vector reverse byte bits
+        /// Corresponds to vector forms of ARM64 RBIT
+        /// </summary>
+        public static Vector64<byte>    ReverseElementBits(Vector64<byte>    value) { throw null; }
+        public static Vector64<sbyte>   ReverseElementBits(Vector64<sbyte>   value) { throw null; }
+        public static Vector128<byte>   ReverseElementBits(Vector128<byte>   value) { throw null; }
+        public static Vector128<sbyte>  ReverseElementBits(Vector128<sbyte>  value) { throw null; }
+
+        /// <summary>
+        /// Vector reverse element bytes
+        /// Corresponds to vector forms of ARM64 REV16, REV32, REV64
+        /// </summary>
+        public static Vector64<ushort>  ReverseElementBytes(Vector64<ushort>  value) { throw null; }
+        public static Vector64<short>   ReverseElementBytes(Vector64<short>   value) { throw null; }
+        public static Vector64<uint>    ReverseElementBytes(Vector64<uint>    value) { throw null; }
+        public static Vector64<int>     ReverseElementBytes(Vector64<int>     value) { throw null; }
+        public static Vector64<float>   ReverseElementBytes(Vector64<float>   value) { throw null; }
+        public static Vector128<ushort> ReverseElementBytes(Vector128<ushort> value) { throw null; }
+        public static Vector128<short>  ReverseElementBytes(Vector128<short>  value) { throw null; }
+        public static Vector128<uint>   ReverseElementBytes(Vector128<uint>   value) { throw null; }
+        public static Vector128<int>    ReverseElementBytes(Vector128<int>    value) { throw null; }
+        public static Vector128<ulong>  ReverseElementBytes(Vector128<ulong>  value) { throw null; }
+        public static Vector128<long>   ReverseElementBytes(Vector128<long>   value) { throw null; }
+        public static Vector128<float>  ReverseElementBytes(Vector128<float>  value) { throw null; }
+        public static Vector128<double> ReverseElementBytes(Vector128<double> value) { throw null; }
+#endif
+    }
+}
 namespace System.Runtime.Intrinsics.X86
 {
     public static class Aes 
