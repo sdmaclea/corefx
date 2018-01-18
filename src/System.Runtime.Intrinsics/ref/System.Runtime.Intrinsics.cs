@@ -9,12 +9,13 @@ using System.Runtime.InteropServices;
 
 namespace System.Runtime.Intrinsics
 {
+    [StructLayout(LayoutKind.Sequential, Size = 8)]
+    public struct Vector64<T> where T : struct {}
     [StructLayout(LayoutKind.Sequential, Size = 16)]
     public struct Vector128<T> where T : struct {}
     [StructLayout(LayoutKind.Sequential, Size = 32)]
     public struct Vector256<T> where T : struct {}
 }
-
 namespace System.Runtime.Intrinsics.X86
 {
     public static class Aes 
